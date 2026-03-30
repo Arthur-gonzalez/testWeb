@@ -1,10 +1,99 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>Mon site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Bienvenue sur mon site !</h1>
-  <p>Ceci est mon premier site avec GitHub Pages 🚀</p>
+
+<header>
+    <nav>
+        <h1>Mon Portfolio</h1>
+        <ul>
+            <li><a href="#about">Présentation</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#experience">Parcours</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="about" class="section">
+    <h2>Présentation</h2>
+    <p>Bonjour, je suis [Ton Nom], passionné par [ton domaine].</p>
+</section>
+
+<section id="skills" class="section">
+    <h2>Compétences</h2>
+    <div class="skills-container">
+      <div class="skill">C, C++, C#</div>
+      <div class="skill">Python</div>
+      <div class="skill">Swift</div>
+      <div class="skill">Java / JavaFX</div>
+      <div class="skill">HTML/CSS</div>
+      <div class="skill">TypeScript, React</div>
+      <div class="skill">Kotlin</div>
+    </div>
+</section>
+
+<section id="projects" class="section">
+    <h2>Projets</h2>
+    <div class="projects-container">
+        <div class="project" onclick="openProject('Projet 1', 'Voici une description détaillée du projet 1.')">
+            <h3>Projet 1</h3>
+            <p>Clique pour voir plus</p>
+        </div>
+        <div class="project" onclick="openProject('Projet 2', 'Voici une description détaillée du projet 2.')">
+            <h3>Projet 2</h3>
+            <p>Clique pour voir plus</p>
+        </div>
+    </div>
+</section>
+
+<section id="experience" class="section">
+    <h2>Parcours</h2>
+    <ul>
+        <li><strong>2023 - 2026</strong> : IUT Clermont Auvergne</li>
+        <li><strong>2022 - 2023</strong> : Classe préparatoire MP2I</li>
+        <li><strong>2021 - 2022</strong> : Terminal</li>
+        <li><strong>2020 - 2021</strong> : Première</li>
+    </ul>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="modal-title"></h3>
+        <p id="modal-description"></p>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Mon Portfolio</p>
+</footer>
+
+<script>
+function openProject(title, description) {
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal-description').innerText = description;
+    document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+}
+</script>
+
 </body>
 </html>
